@@ -1,0 +1,24 @@
+<p>This is the EDIT users view!</p>
+
+<!-- <%= form_tag("/users#create", method: "post") do %>
+  <%= label_tag('user[email]','Email:') %>
+  <%= text_field_tag("user[email]") %><br>
+  <%= label_tag('user[email]','Username:') %>
+  <%= text_field_tag("user[username]") %><br>
+  <%= label_tag('user[email]','Password:') %>
+  <%= password_field_tag(name=("user[password]")) %><br>
+  <%= submit_tag("Submit") %>
+<% end %> -->
+
+<%= form_for @user do |u| %>
+  <% @user.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %><br/>
+  <%= u.label :username %>
+  <%= u.text_field :username %><br/>
+  <%= u.label :email %>
+  <%= u.text_field :email %><br/>
+  <%= u.label :password %>
+  <%= u.password_field :password %><br/>
+  <%= u.submit %>
+<% end %>
